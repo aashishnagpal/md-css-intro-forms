@@ -1,0 +1,153 @@
+body {
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+section {
+  background-color: rgba(0, 0, 0, 0.8);
+  width: 400px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 1px solid #000;
+  color: #ddd;
+  padding: 1em;
+}
+
+section h2 {
+  font-weight: normal;
+  font-size: 1.5em;
+  text-align: center;
+}
+
+div.field {
+  width: 100%;
+  margin-top: 0.5em;
+}
+
+div.field-inline {
+  display: inline-block;
+  width: 49.2%;
+}
+
+div.field label,
+div.field input {
+  display: block;
+}
+
+div.field-inline label,
+div.field-inline input {
+  display: inline-block;
+}
+
+label {
+  font-size: 0.8em;
+  margin-top: 0.5em;
+  margin-bottom: 0.2em;
+}
+
+input {
+  width: 100%;
+  font-size: 1.3em;
+  text-align: center;
+  height: 1.5em;
+  border-radius: 0.7em;
+  background-color: #faede5;
+}
+
+input:focus {
+  outline: none;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="date"] {
+  box-shadow: inset 0 0 0 1px #d35400;
+  border: 0;
+}
+
+input[type="date"] {
+  cursor: text;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="email"]:focus,
+input[type="date"]:focus {
+  outline: none;
+  border: 2px solid #d35400;
+}
+
+div#div-gender {
+  vertical-align: top;
+}
+
+.block-label {
+  display: block !important;
+}
+
+input[type="radio"] {
+  width: auto;
+  display: none !important;
+}
+
+input[type="radio"] + label {
+  width: 48%;
+  height: 30px;
+  border: 1px solid #ddd;
+  margin: 0;
+  text-align: center;
+  padding-top: 5px;
+  cursor: pointer;
+  border-radius: 1em;
+}
+
+input[type="radio"]:checked + label {
+  color: #d35400;
+  border-color: #d35400;
+}
+
+div#div-tnc {
+  text-align: center;
+  margin-top: 2em;
+  margin-bottom: 1em;
+}
+
+div#div-tnc input[type="checkbox"] {
+  width: auto;
+  vertical-align: bottom;
+  cursor: pointer;
+}
+
+div#div-tnc p {
+  display: inline-block;
+  font-size: 0.7em;
+}
+
+a {
+  text-decoration: none;
+  color: #d35400;
+}
+
+input[type="submit"] {
+  height: 3em;
+  border: 0;
+  background-color: #d35400;
+  cursor: pointer;
+  color: #fff;
+  font-size: 2em;
+}
+
+input[type="submit"]:active {
+  background-color: #bd4b00;
+
+}
+
+
+
+
+
+
+
+

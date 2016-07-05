@@ -1,0 +1,55 @@
+body {
+  background-color: #bdc3c7;
+}
+
+div#login-box {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 0.5em solid #fff;
+  font-size: 1.5em;
+  border-radius: 0.25em;
+}
+
+.input-group {
+  display: table;
+}
+
+.input-group > * {
+  display: table-cell;
+}
+
+.border-bottom {
+  border-bottom: 0.5em solid #fff;
+}
+
+.input-group-addon {
+  background-color: #eee;
+  border: 1px solid #bbb;
+  padding: 0.25em;
+  color: #777;
+}
+
+.input-group input[type="text"],
+.input-group input[type="password"] {
+  font-size: 1.2em;
+  border: 1px solid #fff;
+  padding: 0 0.25em;
+  height: 100%;
+}
+
+.input-group.button {
+  position: absolute;
+  top: 0.4em;
+  right: -2em;
+  border: 1px solid #bbb;
+  border-radius: 50%;
+}
+
+.button button {
+  color: #fff;
+  background-color: #3498db;
+  border-radius: inherit;
+  border: 0.8em solid #fff;
+}
