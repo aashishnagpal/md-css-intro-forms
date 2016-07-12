@@ -65,3 +65,17 @@ section > h3 {
 #email {
   text-transform: lowercase;
 }
+
+.field.submit {
+  width: 100%;
+  margin-top: 1em;
+}
+
+input[type="submit"] {
+  width: 100%;
+  font-size: 2em;
+  border: 0;
+  background-color: inherit;
+  color: inherit;
+  cursor: pointer;
+}

@@ -36,3 +36,19 @@ div.options .option input[type="text"] {
   border: none;
   padding-left: 0.25em;
 }
+
+.submit {
+  text-align: right;
+}
+
+input[type="submit"] {
+  font-size: 2em;
+  background-color: #c0392b;
+  color: #fff;
+  border: 0;
+  cursor: pointer;
+}
+
+input[type="submit"]:focus {
+  outline: none;
+}

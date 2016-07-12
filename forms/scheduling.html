@@ -14,7 +14,7 @@
 </header>
 <section>
     <h3>Scheduling Assistant</h3>
-    <form>
+    <form method="post">
         <div class="field date">
             <label for="date"><i class="fa fa-calendar"></i> Date</label>
             <input type="date" id="date" name="date"/>
@@ -262,6 +262,9 @@
         <div class="field message">
             <label for="message"><i class="fa fa-comments-o"></i> Message</label>
             <textarea id="message" name="message"></textarea>
+        </div>
+        <div class="field submit">
+            <input type="submit" id="submit" name="submit" value="Schedule"/>
         </div>
     </form>
 </section>
