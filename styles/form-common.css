@@ -18,7 +18,6 @@ header > a {
 }
 
 header > a:active,
-header > a:visited,
 header > a:hover {
-
+  text-decoration: underline;
 }
