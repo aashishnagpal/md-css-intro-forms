@@ -1,0 +1,46 @@
+body {
+  background: url("../images/columbus.jpg") no-repeat fixed center center;
+  background-size: cover;
+  color: #1bedce;
+}
+
+header {
+  text-align: center;
+  font-size: 5em;
+  margin-bottom: 1em;
+}
+
+section {
+  display: table;
+  margin: 0 auto;
+  width: 70%;
+  border: 2px solid #fff;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+section > h3 {
+  font-size: 2em;
+  font-weight: normal;
+  text-align: center;
+}
+
+section > ul > li {
+  display: inline-block;
+  width: 49%;
+}
+
+section > ul > li > ul > li {
+  list-style-type: none;
+  font-size: 1.5em;
+  line-height: 2em;
+}
+
+li > a {
+  color: inherit;
+  text-decoration: none;
+}
+
+li > a:hover,
+li > a:active {
+  text-decoration: underline;
+}

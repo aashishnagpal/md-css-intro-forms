@@ -1,0 +1,167 @@
+body {
+  background-color: #ecf0f1;
+  color: #fff;
+}
+
+section {
+  border: 2px solid #fff;
+  background-color: rgba(0, 0, 0, 0.3);
+  padding: 1em;
+  display: table;
+  margin: 0 auto;
+}
+
+section > h3 {
+  font-weight: normal;
+  text-align: center;
+  margin: 0;
+}
+
+fieldset {
+  margin-top: 1em;
+  border-color: #fff;
+}
+
+fieldset legend {
+  background-color: #ecf0f1;
+  color: #000;
+  border: 1px solid;
+  padding: 0.1em 0.25em;
+}
+
+.field-group label,
+.field-group input {
+  display: block;
+}
+
+.field-group label {
+  font-size: 0.8em;
+  margin-top: 0.5em;
+}
+
+.field-group input {
+  border: 0;
+  font-size: 1em;
+  margin: 0.25em 0;
+  text-align: center;
+  color: #666;
+  text-transform: uppercase;
+  width: 100%;
+}
+
+input:focus,
+select:focus {
+  outline: none;
+}
+
+.field-group .field {
+  display: inline-block;
+}
+
+.name,
+.card-number {
+  width: 100%;
+}
+
+.images {
+  text-align: center;
+}
+
+.images div {
+  display: inline-block;
+  transform: scale(0.5);
+}
+
+div.images div:nth-of-type(n+2) {
+  margin-left: -3em;
+}
+
+.visa,
+.mastercard,
+.discover,
+.amex {
+  background: url(../images/credit-card-types.jpg) no-repeat;
+  border: 1px solid #fff;
+}
+
+.visa {
+  width: 102px;
+  height: 67px;
+  background-position: -3px -3px;
+}
+
+.mastercard {
+  width: 107px;
+  height: 67px;
+  background-position: -109px -3px;
+}
+
+.discover {
+  width: 103px;
+  height: 67px;
+  background-position: -3px -83px;
+}
+
+.amex {
+  width: 103px;
+  height: 67px;
+  background-position: -111px -83px;
+}
+
+i.fa-question-circle:hover + #cvv-tooltip {
+  display: block;
+}
+
+#cvv-tooltip {
+  font-size: 0.7em;
+  line-height: 1.2em;
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.8);
+  padding: 1em;
+  display: none;
+  width: 42em;
+  border: 1px solid #fff;
+  text-align: justify;
+}
+
+#cvv-tooltip img {
+  float: left;
+  width: 15em;
+  height: 10em;
+  margin: 0 0.5em 1em 0;
+}
+
+#cvv-tooltip > div:nth-of-type(2) {
+  clear: both;
+}
+
+#cvv {
+  width: 3em;
+}
+
+#month {
+  width: 4em;
+}
+
+#year {
+  width: 5em;
+}
+
+fieldset#submit {
+  padding: 0;
+  height: 4em;
+}
+
+fieldset#submit .field-group,
+fieldset#submit .field.submit,
+fieldset#submit button{
+  width: 100%;
+  height: 100%
+}
+
+fieldset#submit button {
+  background-color: #e67e22;
+  border: 0;
+  color: #fff;
+  font-size: 2em;
+}

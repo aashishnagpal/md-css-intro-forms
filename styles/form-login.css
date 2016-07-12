@@ -53,3 +53,23 @@ div#login-box {
   border-radius: inherit;
   border: 0.8em solid #fff;
 }
+
+.button button:focus {
+  outline: none;
+  background-color: #2979af;
+}
+
+.forgot-pass {
+  background-color: #fff;
+  font-size: 0.6em;
+  text-align: center;
+  border: 1px solid #fff;
+}
+
+.forgot-pass a,
+.forgot-pass a:active,
+.forgot-pass a:visited {
+  text-decoration: none;
+  color: #3498db;
+  font-weight: bold;
+}

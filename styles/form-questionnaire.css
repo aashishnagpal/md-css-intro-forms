@@ -3,6 +3,10 @@ body {
   color: #fff;
 }
 
+header > a {
+  color: #fff;
+}
+
 div.questionnaire {
   border: 2px solid #fff;
   position: absolute;

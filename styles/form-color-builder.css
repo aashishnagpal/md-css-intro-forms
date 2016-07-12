@@ -1,0 +1,99 @@
+body {
+  animation: bgcolorchange 30s infinite;
+}
+
+header > a {
+  color: #fff;
+}
+
+section {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(255, 255, 255, 0.9);
+  border: 2px solid #444;
+  padding: 2em;
+  text-align: center;
+}
+
+section h1 {
+  font-size: 3em;
+  white-space: nowrap;
+}
+
+div.range {
+  padding: 1em;
+  border: 1px solid #444;
+  border-bottom: 0;
+  width: 100%;
+  text-align: right;
+}
+
+div#red-selector {
+  color: red;
+}
+div#green-selector {
+  color: green;
+}
+div#blue-selector {
+  color: blue;
+}
+
+div.range > * {
+  font-size: 1.2em;
+}
+
+div.range label {
+  text-align: right;
+  padding: 0;
+}
+
+div.range span {
+  padding: 0 0.5em;
+}
+
+div.range input[type="text"] {
+  width: 2.5em;
+  font-size: 1rem;
+  border: 1px solid #444;
+  text-align: right;
+  padding: 0.1em 0.2em;
+}
+
+div.result-container {
+  border: 1px solid #444;
+}
+
+div.result-container div.result {
+  border: 0.5em solid #fff;
+  padding: 0;
+}
+
+div.result-container textarea {
+  width: 100%;
+  height: 8em;
+
+  resize: none;
+  background-color: #000;
+}
+
+div.result-container textarea:focus {
+  outline: none;
+}
+
+@keyframes bgcolorchange
+{
+  0%, 100%   {background-color: rgba(26, 188, 156, 0.5);}
+  8%   {background-color: rgba(46, 204, 113, 0.5);}
+  16%  {background-color: rgba(52, 152, 219, 0.5);}
+  25%  {background-color: rgba(241, 196, 15, 0.5);}
+  33%  {background-color: rgba(230, 126, 34, 0.5);}
+  42%  {background-color: rgba(231, 76, 60, 0.5);}
+  50%  {background-color: rgba(22, 160, 133, 0.5);}
+  58%  {background-color: rgba(39, 174, 96, 0.5);}
+  66%  {background-color: rgba(41, 128, 185, 0.5);}
+  75%  {background-color: rgba(243, 156, 18, 0.5);}
+  83%  {background-color: rgba(211, 84, 0, 0.5);}
+  92%  {background-color: rgba(192, 57, 43, 0.5);}
+}

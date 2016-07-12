@@ -7,3 +7,18 @@ body {
 body * {
   box-sizing: inherit;
 }
+
+header {
+  padding: 1em;
+}
+
+header > a {
+  text-decoration: none;
+  color: #c0392b;
+}
+
+header > a:active,
+header > a:visited,
+header > a:hover {
+
+}

@@ -1,0 +1,114 @@
+body {
+  background-color: #ecf0f1;
+  color: #fff;
+}
+
+section {
+  border: 2px solid #fff;
+  background-color: rgba(0, 0, 0, 0.3);
+  padding: 1em;
+  display: table;
+  margin: 0 auto;
+}
+
+section > h3 {
+  font-weight: normal;
+  text-align: center;
+  margin: 0;
+}
+
+fieldset {
+  margin-top: 1.25em;
+  border-color: #fff;
+}
+
+fieldset legend {
+  background-color: #ecf0f1;
+  color: #000;
+  border: 1px solid;
+  padding: 0.1em 0.25em;
+}
+
+.field-group label,
+.field-group input {
+  display: block;
+}
+.field-group label {
+  font-size: 0.8em;
+  margin-top: 0.5em;
+}
+
+.field-group input {
+  border: 0;
+  font-size: 1em;
+  margin: 0.25em 0;
+}
+
+.field-group .field {
+  display: inline-block;
+}
+
+.field.checkbox input[type="checkbox"],
+.field.checkbox label {
+  display: inline;
+}
+
+.field.checkbox input[type="checkbox"] {
+  margin: 0 0.25em 0.25em 0.1em;
+  vertical-align: bottom;
+}
+
+.field.checkbox label {
+  vertical-align: top;
+}
+
+.field.name input,
+.field.street-address input,
+.field.country select,
+.field.phone input {
+  width: 18em;
+}
+
+.field.country select{
+  font-family: inherit;
+  font-size: 1em;
+}
+
+.field.city input {
+  width: 8em;
+}
+
+.field.state {
+  margin-left: 0.5em;
+  margin-right: 0.5em;
+}
+
+.field.state input {
+  width: 3.3em;
+}
+
+.field.zipcode input {
+  width: 5em;
+}
+
+fieldset#submit {
+  padding: 0;
+  height: 4em;
+}
+
+fieldset#submit .field-group,
+fieldset#submit .field.submit,
+fieldset#submit button{
+  width: 100%;
+  height: 100%
+}
+
+fieldset#submit button {
+  background-color: #e67e22;
+  border: 0;
+  color: #fff;
+  font-size: 2em;
+}
+
+
+

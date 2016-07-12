@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Color Builder</title>
+    <link rel="stylesheet" type="text/css" href="../styles/form-common.css"/>
+    <link rel="stylesheet" type="text/css" href="../styles/form-color-builder.css"/>
+    <link rel="stylesheet" type="text/css"
+          href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"/>
+</head>
+<body>
+<header>
+    <a href="../index.html" target="_self">Return to Menu</a>
+</header>
+<section>
+    <h1>Color Builder</h1>
+    <form method="get">
+        <div class="color-picker">
+            <div id="red-selector" class="range">
+                <label for="range-red">Red</label>
+                <span class="label-addon"><i class="fa fa-cog fa-lg" aria-hidden="true"></i></span>
+                <input type="range" id="range-red" max="255" step="5" value="0"/>
+                <input type="text" maxlength="3" id="range-val-red" value="0"/>
+            </div>
+            <div id="green-selector" class="range">
+                <label for="range-green">Green</label>
+                <span class="label-addon"><i class="fa fa-cog fa-lg" aria-hidden="true"></i></span>
+                <input type="range" id="range-green" max="255" step="5" value="0"/>
+                <input type="text" maxlength="3" id="range-val-green" value="0"/>
+            </div>
+            <div id="blue-selector" class="range">
+                <label for="range-blue">Blue</label>
+                <span class="label-addon"><i class="fa fa-cog fa-lg" aria-hidden="true"></i></span>
+                <input type="range" id="range-blue" max="255" step="5" value="0"/>
+                <input type="text" maxlength="3" id="range-val-blue" value="0"/>
+            </div>
+            <div id="alpha-selector" class="range">
+                <label for="range-alpha">Alpha</label>
+                <span class="label-addon"><i class="fa fa-adjust fa-lg" aria-hidden="true"></i></span>
+                <input type="range" id="range-alpha" max="1" step="0.01" value="1"/>
+                <input type="text" maxlength="4" id="range-val-alpha" value="1.0"/>
+            </div>
+        </div>
+    </form>
+    <div class="result-container">
+        <div class="result">
+            <textarea contenteditable="false"></textarea>
+        </div>
+    </div>
+</section>
+</body>
+</html>
