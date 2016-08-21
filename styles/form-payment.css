@@ -108,31 +108,36 @@ div.images div:nth-of-type(n+2) {
   background-position: -111px -83px;
 }
 
+label[for="cvv"] {
+  position: relative;
+}
+
 i.fa-question-circle:hover + #cvv-tooltip {
   display: block;
 }
 
 #cvv-tooltip {
-  font-size: 0.7em;
+  font-size: 0.9em;
   line-height: 1.2em;
   position: absolute;
   background-color: rgba(0, 0, 0, 0.8);
-  padding: 1em;
+  padding: 0.5em;
   display: none;
-  width: 42em;
+  width: 20em;
   border: 1px solid #fff;
-  text-align: justify;
+  text-align: center;
+  top: 0;
+  right: -21em;
 }
 
 #cvv-tooltip img {
-  float: left;
-  width: 15em;
+  /*float: left;*/
+  width: 12em;
   height: 10em;
-  margin: 0 0.5em 1em 0;
+  margin: 0 auto;
 }
-
-#cvv-tooltip > div:nth-of-type(2) {
-  clear: both;
+#cvv-tooltip p {
+  text-align: justify;
 }
 
 #cvv {
