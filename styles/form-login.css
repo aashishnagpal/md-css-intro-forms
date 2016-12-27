@@ -1,13 +1,14 @@
 body {
-  background-color: #bdc3c7;
+  background-color: rgba(0, 0, 0, 0.7);
 }
 
 div#login-box {
   position: absolute;
+  background-color: #000;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  border: 0.5em solid #fff;
+  border: 0.5em solid #000;
   font-size: 1.5em;
   border-radius: 0.25em;
 }
@@ -21,55 +22,67 @@ div#login-box {
 }
 
 .border-bottom {
-  border-bottom: 0.5em solid #fff;
+  border-bottom: 0.6em solid #000;
 }
 
 .input-group-addon {
-  background-color: #eee;
-  border: 1px solid #bbb;
-  padding: 0.25em;
-  color: #777;
+  background-color: #faede5;
+  border: solid #d35400;
+  border-width: 3px 0 3px 3px;
+  border-radius: 10px 0 0 10px;
+  padding: 0.25em 0.4em;
+  color: #d35400;
+}
+
+input:focus {
+  outline: none;
 }
 
 .input-group input[type="text"],
 .input-group input[type="password"] {
+  background-color: #faede5;
   font-size: 1.2em;
-  border: 1px solid #fff;
-  padding: 0 0.25em;
-  height: 100%;
+  border: solid #d35400;
+  border-width: 3px 3px 3px 0;
+  border-radius: 0 10px 10px 0;
+  padding: 0.25em;
 }
 
 .input-group.button {
   position: absolute;
-  top: 0.4em;
+  top: 0.8em;
   right: -2em;
-  border: 1px solid #bbb;
+  border: 1px solid #000;
   border-radius: 50%;
 }
 
 .button button {
-  color: #fff;
-  background-color: #3498db;
+  color: #d35400;
+  background-color: #000;
   border-radius: inherit;
-  border: 0.8em solid #fff;
+  border: 0.8em solid #d35400;
+  padding-top: 0;
+  padding-bottom: 1px;
 }
 
 .button button:focus {
   outline: none;
-  background-color: #2979af;
+  color: #bd4b00;
+  border-color: #bd4b00;
 }
 
 .forgot-pass {
-  background-color: #fff;
+  background-color: #000;
   font-size: 0.6em;
   text-align: center;
-  border: 1px solid #fff;
+  color: #fff;
+  /*border: 1px solid #fff;*/
 }
 
 .forgot-pass a,
 .forgot-pass a:active,
 .forgot-pass a:visited {
   text-decoration: none;
-  color: #3498db;
+  color: #d35400;
   font-weight: bold;
 }
