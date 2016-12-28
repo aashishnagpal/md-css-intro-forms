@@ -85,7 +85,7 @@ input:focus {
 }
 
 .field.city input {
-  width: 8em;
+  width: 8.7em;
 }
 
 .field.state {
@@ -94,16 +94,11 @@ input:focus {
 }
 
 .field.state input {
-  width: 3.3em;
+  width: 3em;
 }
 
 .field.zipcode input {
   width: 5em;
-}
-
-fieldset#submit {
-  padding: 0;
-  height: 4em;
 }
 
 button[type="submit"] {
@@ -116,15 +111,10 @@ button[type="submit"] {
   font-size: 2em;
   text-align: center;
   border-radius: 0.7em;
-  margin: 0.25em 0 0 0.1em;
+  margin: 0.5em 0 0 0.1em;
   padding: 0 0.5em;
 }
-/*width: 100%;*/
-/*font-size: 1.3em;*/
-/*text-align: center;*/
-/*height: 1.5em;*/
-/*border-radius: 0.7em;*/
-/*background-color: #faede5;*/
+
 button[type="submit"]:active {
   background-color: #bd4b00;
 }
