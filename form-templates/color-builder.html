@@ -19,34 +19,39 @@
             <div id="red-selector" class="range">
                 <label for="range-red">Red</label>
                 <span class="label-addon"><i class="fa fa-cog fa-lg" aria-hidden="true"></i></span>
-                <input type="range" id="range-red" max="255" step="5" value="0"/>
-                <input type="text" maxlength="3" id="range-val-red" value="0"/>
+                <input type="range" id="range-red" min="0" max="255" step="1" value="0"/>
+                <input type="text" maxlength="3" id="range-red-val" min="0" max="255" step="1" value="0"/>
             </div>
             <div id="green-selector" class="range">
                 <label for="range-green">Green</label>
                 <span class="label-addon"><i class="fa fa-cog fa-lg" aria-hidden="true"></i></span>
-                <input type="range" id="range-green" max="255" step="5" value="0"/>
-                <input type="text" maxlength="3" id="range-val-green" value="0"/>
+                <input type="range" id="range-green" min="0" max="255" step="1" value="0"/>
+                <input type="text" maxlength="3" id="range-green-val" min="0" max="255" step="1" value="0"/>
             </div>
             <div id="blue-selector" class="range">
                 <label for="range-blue">Blue</label>
                 <span class="label-addon"><i class="fa fa-cog fa-lg" aria-hidden="true"></i></span>
-                <input type="range" id="range-blue" max="255" step="5" value="0"/>
-                <input type="text" maxlength="3" id="range-val-blue" value="0"/>
+                <input type="range" id="range-blue" min="0" max="255" step="1" value="0"/>
+                <input type="text" maxlength="3" id="range-blue-val" min="0" max="255" step="1" value="0"/>
             </div>
             <div id="alpha-selector" class="range">
                 <label for="range-alpha">Alpha</label>
                 <span class="label-addon"><i class="fa fa-adjust fa-lg" aria-hidden="true"></i></span>
-                <input type="range" id="range-alpha" max="1" step="0.01" value="1"/>
-                <input type="text" maxlength="4" id="range-val-alpha" value="1.0"/>
+                <input type="range" id="range-alpha" min="0" max="1" step="0.01" value="1"/>
+                <input type="text" maxlength="4" id="range-alpha-val" min="0" max="1" step="0.01" value="1.0"/>
             </div>
         </div>
     </form>
     <div class="result-container">
         <div class="result">
-            <textarea contenteditable="false"></textarea>
+            <textarea id="builtColor" readonly></textarea>
         </div>
     </div>
 </section>
+<footer>
+    NOTE: Your selected color is spanning the entire area.
+    <br/> Do not notice the color in which the values are written.
+</footer>
+<script type="text/javascript" src="../js/color-builder.js"></script>
 </body>
 </html>
