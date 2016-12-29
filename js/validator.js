@@ -4,7 +4,7 @@
  * Purpose: This file will have all the validaton functions and sets the validator object onto window object.
  */
 
-var validator = (function (window) {
+var validator = (function () {
   'use strict';
   var validator = {};
 
