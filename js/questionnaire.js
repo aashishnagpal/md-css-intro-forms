@@ -3,6 +3,7 @@
  */
 
 (function () {
+  'use strict';
   var txtInput = document.getElementById('text-other');
   Array.prototype.forEach.call(document.getElementsByName('fav-person'), function (element) {
     element.addEventListener('click', function (event) {
