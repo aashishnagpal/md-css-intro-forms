@@ -66,7 +66,8 @@ div.result-container {
   border: 1px solid #444;
 }
 
-div.result-container div.result {
+div.result,
+div#result-values {
   background-color: #fff;
   border: 0.5em solid #fff;
   padding: 0;
@@ -74,10 +75,10 @@ div.result-container div.result {
 
 div.result-container textarea {
   width: 100%;
-  font-size: 1.5em;
-  height: 5em;
+  /*font-size: 1.5em;*/
+  height: 8em;
   resize: none;
-  text-align: center;
+  /*text-align: center;*/
   border: 1px solid #000;
 }
 

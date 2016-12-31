@@ -8,8 +8,8 @@
     //This would return a NodeList for each color slider
     var colorInputs = document.querySelectorAll('input[type="range"]');
 
-    // Create an array each for the rgba values, inverted values (for text color), and HEX values.
-    var rgbaArr = [], invertedArr = [], hexArr = [];
+    // Create an array each for the rgba values and HEX values.
+    var rgbaArr = [], hexArr = [];
 
     // We already know that the sliders in that order R,G,B,A
     // Use forEach
@@ -18,7 +18,6 @@
 
       rgbaArr.push(val);
       if (index !== 3) {
-        invertedArr.push(255 - val);
         hexArr.push(hexVal.length === 1 ? ('0' + hexVal) : hexVal);
       }
 
@@ -26,18 +25,13 @@
       if (txtBox.value !== val) txtBox.value = val;
     });
 
-    // Create rgbaValue, invertedValue and hexValue using array.join
+    // Assign Result
     var rgbaValue = 'rgba(' + rgbaArr.join(',') + ')';
-    var invertedValue = 'rgb(' + invertedArr.join(',') + ')';
-    var hexValue = '#' + hexArr.join('');
+    document.getElementById('builtColor').style.backgroundColor = rgbaValue;
+    document.getElementById('rgba-value').innerHTML = 'RGBA: <strong>' + rgbaValue + '</strong>';
+    document.getElementById('rgb-value').innerHTML = 'RGB Only: <strong>rgb(' + rgbaArr.slice(0,3).join(',') + ')</strong>';
+    document.getElementById('hex-value').innerHTML = 'HEX: <strong>#' + hexArr.join('') + '</strong>';
 
-    // Get hold of the textarea
-    var colorArea = document.getElementById('builtColor');
-
-    // Assign Color
-    colorArea.style.backgroundColor = rgbaValue;
-    colorArea.style.color = invertedValue;
-    colorArea.innerHTML = '\n' + rgbaValue + '\n' + hexValue;
   };
 
   var updateSlider = function (element) {
