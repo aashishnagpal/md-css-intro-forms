@@ -4,10 +4,14 @@
 
 (function () {
   'use strict';
+  var options = document.getElementsByName('fav-person');
   var txtInput = document.getElementById('text-other');
-  Array.prototype.forEach.call(document.getElementsByName('fav-person'), function (element) {
-    element.addEventListener('click', function (event) {
+  var errorElement = document.getElementById('error');
 
+  options.forEach(function (element) {
+    element.addEventListener('click', function (event) {
+      errorElement.innerHTML = '';
+      errorElement.classList.remove('filled');
       if (event.target.id === 'radio-other') {
         txtInput.setAttribute('required', '');
       } else {
@@ -16,9 +20,14 @@
     });
   });
 
-  txtInput.addEventListener('keyup', function() {
+  txtInput.addEventListener('keyup', function () {
+    if (errorElement.innerHTML) {
+      errorElement.innerHTML = '';
+      errorElement.classList.remove('filled');
+    }
+
     if (!validator.isAlphanumeric(txtInput.value.replace(/ /g, ''))) {
-      txtInput.setCustomValidity('A person name can only contain alphanumeric characters.');
+      txtInput.setCustomValidity('A name can only contain alphanumeric characters.');
     } else {
       txtInput.setCustomValidity('');
     }
@@ -26,5 +35,30 @@
 
   document.getElementById('submit').addEventListener('click', function (event) {
     document.getElementById('questionnaireForm').classList.add('validate');
+
+    var validationMessage = '';
+    options.forEach(function (element) {
+      if (element.validity.valueMissing) {
+        validationMessage = 'Options: ' + element.validationMessage;
+      }
+    });
+    if (validationMessage) {
+      errorElement.innerHTML += validationMessage;
+      errorElement.classList.add('filled');
+    } else {
+      errorElement.innerHTML += '';
+    }
+
+    if (document.getElementById('radio-other').checked &&
+        (txtInput.validity.valueMissing || txtInput.validationMessage)) {
+      errorElement.innerHTML += 'Text Box: ' + txtInput.validationMessage;
+      errorElement.classList.add('filled');
+    } else {
+      errorElement.innerHTML += '';
+    }
+
+    if (errorElement.innerHTML) {
+      event.preventDefault();
+    }
   });
 })();

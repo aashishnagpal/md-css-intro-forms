@@ -34,6 +34,7 @@ div.options .option {
 input[type="text"]:focus {
   outline: none;
 }
+
 div.options .option input[type="text"] {
   font-size: 1em;
   border: 2px solid #c0392b;
@@ -63,4 +64,13 @@ form.validate input[type="radio"]:invalid {
 
 form.validate input[type="text"]:invalid {
   border: 2px solid yellow;
+}
+
+.error {
+  color: yellow;
+  font-weight: bold;
+}
+
+.error.filled {
+  padding: 0.5em;
 }
