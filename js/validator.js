@@ -282,11 +282,6 @@ var validator = (function () {
     return invalidForm;
   };
 
-  var toggleAllErrors = function (formId, errorListId) {
-    validator.errorUtilities.removeAllErrors('schedulingForm', 'errorsList');
-    return validator.errorUtilities.setAllErrors('schedulingForm', 'errorsList');
-  };
-
   var removeElementError = function (errorListId, elementId) {
     console.log('called remove');
     var errorList = document.getElementById(errorListId);
@@ -307,10 +302,6 @@ var validator = (function () {
     if (!element.checkValidity() && !listElement)
       errorList.innerHTML += '<li id="li-' + element.id + '"><strong>' + label.innerText +
           ':</strong> ' + validationMsg + '</li>';
-  };
-
-  var toggleElementError = function (errorListId, elementId) {
-
   };
 
   return {
@@ -347,10 +338,8 @@ var validator = (function () {
     errorUtilities: {
       removeAllErrors: removeAllErrors,
       setAllErrors: setAllErrors,
-      toggleAllErrors: toggleAllErrors,
       removeElementError: removeElementError,
-      setElementError: setElementError,
-      toggleElementError: toggleElementError
+      setElementError: setElementError
     }
   };
 })();
