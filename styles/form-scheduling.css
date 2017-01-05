@@ -1,6 +1,10 @@
 body {
   background-color: #d0d0d0;
-  color: #c0392b;
+  color: #2980b9; /*#c0392b*/
+}
+
+header > a {
+  color: #2980b9;
 }
 
 section {
@@ -30,13 +34,14 @@ section > h3 {
 
 .field label {
   float: left;
-  width: 12em;
-  padding: 0.1em;
+  width: 11em;
+  padding: 0.1em 0;
   font-size: 1.2em;
+  text-align: right;
 }
 
 .field label i {
-  margin-right: 0.5em;
+  margin: 0 0.5em;
   float:right;
   font-size: 1.2em;
 }
@@ -49,7 +54,7 @@ section > h3 {
 .field input:focus,
 .field select:focus,
 .field textarea:focus {
-  outline-color: #c0392b;
+  outline-color: #2980b9;
 }
 
 .field textarea {
@@ -78,4 +83,28 @@ input[type="submit"] {
   background-color: inherit;
   color: inherit;
   cursor: pointer;
+}
+
+input[type="submit"]:focus {
+  color: #004D86;
+  outline: #004D86;
+}
+
+.field input:not([type="date"]):not([type="time"]), .field select {
+  padding: 0.2em;
+}
+
+form.validate input:invalid,
+form.validate select:invalid,
+form.validate textarea:invalid {
+  border: 2px solid #c0392b;
+  outline: none;
+}
+
+ul#errorsList:not(:empty) {
+  border: 1px dotted #c0392b;
+}
+ul#errorsList li {
+  color: #c0392b;
+  font-size: 0.8em;
 }

@@ -6,9 +6,8 @@
 
 var validator = (function () {
   'use strict';
-  var validator = {};
 
-  validator.isEmailAddress = function (input) {
+  var isEmailAddress = function (input) {
     // input should not be null, empty or length > 255
     if (!input || input.length > 255) return false;
 
@@ -35,7 +34,7 @@ var validator = (function () {
     return true;
   };
 
-  validator.isPhoneNumber = function (input) {
+  var isPhoneNumber = function (input) {
     if (input) {
       input = input.split(' ').join('');
       if (input[0] === '(' && input[4] === ')') {
@@ -57,52 +56,50 @@ var validator = (function () {
     symbols = symbols || [];
     action = action || '';
     return (input !== null && typeof input !== 'undefined') && input.split('').map(function (character) {
-          var code = character.charCodeAt(0);
-          if ((code >= 65 && code <= 90) ||
-              (code >= 97 && code <= 122) ||
-              (code >= 48 && code <= 57)) return character;
+          if ((character >= 'A' && character <= 'Z') ||
+              (character >= 'a' && character <= 'z') ||
+              (character >= '0' && character <= '9')) return character;
           if (action === 'preserve' && symbols.includes(character)) return character;
           if (action === 'convert' && symbols.includes(character)) return ' ';
           return '';
         }).join('');
   };
 
-  validator.withoutSymbols = function (input) {
+  var withoutSymbols = function (input) {
     return modifyPunctuations(input, [' '], 'preserve');
   };
 
-  validator.isDate = function (input) {
+  var isDate = function (input) {
     return !isNaN(Date.parse(input));
   };
 
-
-  validator.isBeforeDate = function (input, reference) {
-    if (!validator.isDate(input)) throw 'validator function \'isBeforeDate\', missing parameter: \'input\'';
-    if (!validator.isDate(reference)) throw 'validator function \'isBeforeDate\', missing parameter: \'reference\'';
+  var isBeforeDate = function (input, reference) {
+    if (!isDate(input)) throw 'validator function \'isBeforeDate\', missing parameter: \'input\'';
+    if (!isDate(reference)) throw 'validator function \'isBeforeDate\', missing parameter: \'reference\'';
     return Date.parse(input) < Date.parse(reference);
   };
 
-  validator.isAfterDate = function (input, reference) {
-    if (!validator.isDate(input)) throw 'validator function \'isAfterDate\', missing parameter: \'input\'';
-    if (!validator.isDate(reference)) throw 'validator function \'isAfterDate\', missing parameter: \'reference\'';
+  var isAfterDate = function (input, reference) {
+    if (!isDate(input)) throw 'validator function \'isAfterDate\', missing parameter: \'input\'';
+    if (!isDate(reference)) throw 'validator function \'isAfterDate\', missing parameter: \'reference\'';
     return Date.parse(input) > Date.parse(reference);
   };
 
-  validator.isBeforeToday = function (input) {
-    if (!validator.isDate(input)) throw 'validator function \'isBeforeToday\', missing parameter: \'input\'';
+  var isBeforeToday = function (input) {
+    if (!isDate(input)) throw 'validator function \'isBeforeToday\', missing parameter: \'input\'';
     return Date.parse(input) < Date.now();
   };
 
-  validator.isAfterToday = function (input) {
-    if (!validator.isDate(input)) throw 'validator function \'isAfterToday\', missing parameter: \'input\'';
+  var isAfterToday = function (input) {
+    if (!isDate(input)) throw 'validator function \'isAfterToday\', missing parameter: \'input\'';
     return Date.parse(input) > Date.now();
   };
 
-  validator.isEmpty = function (input) {
+  var isEmpty = function (input) {
     return input !== null && typeof input !== 'undefined' && !input.split(' ').join('').length;
   };
 
-  validator.contains = function (input, words) {
+  var contains = function (input, words) {
     if (!input || !input.length) throw 'validator function \'contains\', missing or empty parameter: \'input\'';
     if (!words || !words.length) throw 'validator function \'contains\', missing or empty parameter: \'words\'';
 
@@ -113,14 +110,14 @@ var validator = (function () {
     return (words).includes(true);
   };
 
-  validator.lacks = function (input, words) {
+  var lacks = function (input, words) {
     if (!input || !input.length) throw 'validator function \'lacks\', missing or empty parameter: \'input\'';
     if (!words || !words.length) throw 'validator function \'lacks\', missing or empty parameter: \'words\'';
 
-    return !validator.contains(input, words);
+    return !contains(input, words);
   };
 
-  validator.isComposedOf = function (input, strings) {
+  var isComposedOf = function (input, strings) {
     if (!input || !input.length)
       throw 'validator function \'isComposedOf\', missing or empty parameter: \'input\'';
     if (!strings || !strings.length)
@@ -133,7 +130,7 @@ var validator = (function () {
     var flags = Array.from(input, function () {
       return false;
     });
-    strings.forEach(function(string) {
+    strings.forEach(function (string) {
       string = modifyPunctuations(string).toLowerCase();
       var matcherLength = string.length;
       var loopLength = inputLength - matcherLength;
@@ -150,20 +147,20 @@ var validator = (function () {
   };
 
   // renamed from isLength as the name is more descriptive
-  validator.isOfShorterOrEqualLength = function (input, n) {
+  var isOfShorterOrEqualLength = function (input, n) {
     input = input || '';
     n = n || 0;
     return input.length <= n;
   };
 
   // renamed from isOfLength as the name is more descriptive
-  validator.isOfEqualOrGreaterLength = function (input, n) {
+  var isOfEqualOrGreaterLength = function (input, n) {
     input = input || '';
     n = n || 0;
     return input.length >= n;
   };
 
-  validator.countWords = function (input) {
+  var countWords = function (input) {
     if (input === null || typeof input === 'undefined')
       throw 'validator function \'countWords\', missing parameter: \'input\'';
 
@@ -176,38 +173,38 @@ var validator = (function () {
   };
 
   // renamed from lessWordsThan as the name is more descriptive
-  validator.hasLessWordsThan = function (input, n) {
+  var hasLessWordsThan = function (input, n) {
     input = input || '';
     n = n || 0;
-    return validator.countWords(input) <= n;
+    return countWords(input) <= n;
   };
 
   // renamed from moreWordsThan as the name is more descriptive
-  validator.hasMoreWordsThan = function (input, n) {
+  var hasMoreWordsThan = function (input, n) {
     input = input || '';
     n = n || 0;
-    return validator.countWords(input) >= n;
+    return countWords(input) >= n;
   };
 
-  validator.isBetween = function (input, floor, ceil) {
+  var isBetween = function (input, floor, ceil) {
     input = input || 0;
     floor = floor || 0;
     ceil = ceil || 0;
     return input >= floor && input <= ceil;
   };
 
-  validator.isAlphanumeric = function (input) {
+  var isAlphanumeric = function (input) {
     input = input || '';
     return modifyPunctuations(input).length === input.length;
   };
 
-  validator.isCreditCard = function (input) {
+  var isCreditCard = function (input) {
     if (!input || !input.length) return false;
     input = input.split('-').join('');
     return (input.length === 16) && !isNaN(input);
   };
 
-  validator.isHex = function (input) {
+  var isHex = function (input) {
     input = input || '';
     if (input.startsWith('#') && (input.length === 7 || input.length === 4)) {
       var value = input.substr(1).split('').map(function (character) {
@@ -218,7 +215,7 @@ var validator = (function () {
     return false;
   };
 
-  validator.isRGB = function (input) {
+  var isRGB = function (input) {
     input = input || '';
     var trimmed = input.split(' ').join('');
     if (trimmed.startsWith('rgb(') && trimmed.endsWith(')')) {
@@ -232,7 +229,7 @@ var validator = (function () {
     return false;
   };
 
-  validator.isHSL = function (input) {
+  var isHSL = function (input) {
     input = input || '';
     var trimmed = input.split(' ').join('');
     if (trimmed.startsWith('hsl(') && trimmed.endsWith(')')) {
@@ -247,15 +244,113 @@ var validator = (function () {
     return false;
   };
 
-  validator.isColor = function (input) {
-    return validator.isHex(input) || validator.isRGB(input) || validator.isHSL(input);
+  var isColor = function (input) {
+    return isHex(input) || isRGB(input) || isHSL(input);
   };
 
-  validator.isTrimmed = function (input) {
+  var isTrimmed = function (input) {
     if (input === null || typeof input === 'undefined')
       throw 'validator function \'isTrimmed\', missing parameter: \'input\'';
     return input === '' || !input.split(' ').includes('');
   };
 
-  return validator;
+  // Error Utility Functions to work in conjugation with HTML5 Constraint API
+  var removeAllErrors = function (formId, errorListId) {
+    document.getElementById(formId).classList.remove('validate');
+    var errorList = document.getElementById(errorListId);
+    if (errorList.innerHTML) {
+      errorList.innerHTML = '';
+    }
+  };
+
+  var setAllErrors = function (formId, errorListId) {
+    var form = document.getElementById(formId);
+    var errorList = document.getElementById(errorListId);
+    var invalidForm = false;
+    var invalidElements = form.querySelectorAll(':invalid');
+    Array.prototype.forEach.call(invalidElements, function (element, index) {
+      var label = form.querySelector('label[for="' + element.id + '"]');
+      var validationMsg = element.validationMessage;
+      if (validationMsg) {
+        errorList.innerHTML += '<li id="li-' + element.id + '"><strong>' + label.innerText + ':</strong> ' + validationMsg + '</li>';
+      }
+      invalidForm = true;
+      if (index === 0) element.focus();
+      form.classList.add('validate');
+    });
+
+    return invalidForm;
+  };
+
+  var toggleAllErrors = function (formId, errorListId) {
+    validator.errorUtilities.removeAllErrors('schedulingForm', 'errorsList');
+    return validator.errorUtilities.setAllErrors('schedulingForm', 'errorsList');
+  };
+
+  var removeElementError = function (errorListId, elementId) {
+    console.log('called remove');
+    var errorList = document.getElementById(errorListId);
+    var element = document.getElementById(elementId);
+    var listElement = errorList.querySelector('#li-' + elementId);
+    if (element.checkValidity() && listElement) errorList.removeChild(listElement);
+  };
+
+  var setElementError = function (errorListId, elementId) {
+    console.log('called set');
+    var errorList = document.getElementById(errorListId);
+    var element = document.getElementById(elementId);
+    var listElement = errorList.querySelector('#li-' + elementId);
+
+    var validationMsg = element.validationMessage;
+    var label = document.querySelector('label[for="' + element.id + '"]');
+
+    if (!element.checkValidity() && !listElement)
+      errorList.innerHTML += '<li id="li-' + element.id + '"><strong>' + label.innerText +
+          ':</strong> ' + validationMsg + '</li>';
+  };
+
+  var toggleElementError = function (errorListId, elementId) {
+
+  };
+
+  return {
+    validations: {
+      isEmailAddress: isEmailAddress,
+      isPhoneNumber: isPhoneNumber,
+      isDate: isDate,
+      isBeforeDate: isBeforeDate,
+      isAfterDate: isAfterDate,
+      isBeforeToday: isBeforeToday,
+      isAfterToday: isAfterToday,
+      isEmpty: isEmpty,
+      contains: contains,
+      lacks: lacks,
+      isComposedOf: isComposedOf,
+      isOfShorterOrEqualLength: isOfShorterOrEqualLength,
+      isOfEqualOrGreaterLength: isOfEqualOrGreaterLength,
+      hasLessWordsThan: hasLessWordsThan,
+      hasMoreWordsThan: hasMoreWordsThan,
+      isBetween: isBetween,
+      isAlphanumeric: isAlphanumeric,
+      isCreditCard: isCreditCard,
+      isHex: isHex,
+      isRGB: isRGB,
+      isHSL: isHSL,
+      isColor: isColor,
+      isTrimmed: isTrimmed
+    },
+    validationUtilities: {
+      withoutSymbols: withoutSymbols,
+      countWords: countWords,
+      modifyPunctuations: modifyPunctuations
+    },
+    errorUtilities: {
+      removeAllErrors: removeAllErrors,
+      setAllErrors: setAllErrors,
+      toggleAllErrors: toggleAllErrors,
+      removeElementError: removeElementError,
+      setElementError: setElementError,
+      toggleElementError: toggleElementError
+    }
+  };
 })();
