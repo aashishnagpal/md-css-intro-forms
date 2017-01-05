@@ -13,7 +13,7 @@
 
     // We already know that the sliders in that order R,G,B,A
     // Use forEach
-    colorInputs.forEach(function (element, index) {
+    Array.prototype.forEach.call(colorInputs, function (element, index) {
       var val = element.value, hexVal = (+val).toString(16);
 
       rgbaArr.push(val);

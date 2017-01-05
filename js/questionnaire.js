@@ -8,7 +8,7 @@
   var txtInput = document.getElementById('text-other');
   var errorElement = document.getElementById('error');
 
-  options.forEach(function (element) {
+  Array.prototype.forEach.call(options, function (element) {
     element.addEventListener('click', function (event) {
       errorElement.innerHTML = '';
       errorElement.classList.remove('filled');
@@ -26,7 +26,7 @@
       errorElement.classList.remove('filled');
     }
 
-    if (!validator.isAlphanumeric(txtInput.value.replace(/ /g, ''))) {
+    if (!validator.validations.isAlphanumeric(txtInput.value.replace(/ /g, ''))) {
       txtInput.setCustomValidity('A name can only contain alphanumeric characters.');
     } else {
       txtInput.setCustomValidity('');
@@ -37,7 +37,7 @@
     document.getElementById('questionnaireForm').classList.add('validate');
 
     var validationMessage = '';
-    options.forEach(function (element) {
+    Array.prototype.forEach.call(options, function (element) {
       if (element.validity.valueMissing) {
         validationMessage = 'Options: ' + element.validationMessage;
       }
