@@ -26,10 +26,11 @@
         time.setCustomValidity('Please select a valid date/time (future).');
         timezone.setCustomValidity('Please select a valid time zone.');
 
-        if (!validator.validations.isEmpty(date.value) && !validator.validations.isEmpty(time.value) && !validator.validations.isEmpty(timezone.value)) {
+        if (!validator.validations.isEmpty(date.value) && !validator.validations.isEmpty(time.value)) {
           validator.errorUtilities.setElementError('errorsList', date.id);
           validator.errorUtilities.setElementError('errorsList', time.id);
-          validator.errorUtilities.setElementError('errorsList', timezone.id);
+          if (validator.validations.isEmpty(timezone.value))
+            validator.errorUtilities.setElementError('errorsList', timezone.id);
         }
       } else {
         date.setCustomValidity('');
