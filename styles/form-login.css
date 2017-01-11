@@ -85,3 +85,15 @@ input:focus {
   color: #d35400;
   font-weight: bold;
 }
+
+.input-group label {
+  display: none;
+}
+
+ul#errors-list:empty {
+  margin: 0;
+}
+
+ul#errors-list:not(:empty) {
+  margin: 0.5em 0 0 0;
+}
