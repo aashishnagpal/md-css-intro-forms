@@ -94,17 +94,6 @@ input[type="submit"]:focus {
   padding: 0.2em;
 }
 
-form.validate input:invalid,
-form.validate select:invalid,
-form.validate textarea:invalid {
-  border: 2px solid #c0392b;
-  outline: none;
-}
-
-ul#errorsList:not(:empty) {
-  border: 1px dotted #c0392b;
-}
-ul#errorsList li {
-  color: #c0392b;
-  font-size: 0.8em;
+ul#errors-list:not(:empty) {
+  padding: 0 1em;
 }

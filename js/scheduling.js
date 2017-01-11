@@ -4,9 +4,9 @@
 (function () {
   'use strict';
 
-  document.getElementById('schedulingForm').addEventListener('submit', function (event) {
-    validator.errorUtilities.removeAllErrors('schedulingForm', 'errorsList');
-    if (validator.errorUtilities.setAllErrors('schedulingForm', 'errorsList')) event.preventDefault();
+  document.getElementById('scheduling-form').addEventListener('submit', function (event) {
+    validator.errorUtilities.removeAllErrors('scheduling-form', 'errors-list');
+    if (validator.errorUtilities.setAllErrors('scheduling-form', 'errors-list')) event.preventDefault();
   });
 
   var date = document.getElementById('date');
