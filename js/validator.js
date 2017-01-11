@@ -258,9 +258,20 @@ var validator = (function () {
   var removeAllErrors = function (formId, errorListId) {
     document.getElementById(formId).classList.remove('validate');
     var errorList = document.getElementById(errorListId);
-    if (errorList.innerHTML) {
+    if (errorList && errorList.innerHTML) {
       errorList.innerHTML = '';
     }
+  };
+
+  var createErrorListElement = function (errorList, element) {
+    var listElement = errorList.querySelector('#li-' + element.id);
+    var validationMsg = element.validationMessage;
+    var label = document.querySelector('label[for="' + element.id + '"]');
+
+    if (!element.checkValidity() && !listElement)
+      return '<li id="li-' + element.id + '"><i class="fa fa-exclamation"></i> <strong>' + label.innerText +
+          ':</strong> ' + validationMsg + '</li>';
+    return '';
   };
 
   var setAllErrors = function (formId, errorListId) {
@@ -269,16 +280,11 @@ var validator = (function () {
     var invalidForm = false;
     var invalidElements = form.querySelectorAll(':invalid');
     Array.prototype.forEach.call(invalidElements, function (element, index) {
-      var label = form.querySelector('label[for="' + element.id + '"]');
-      var validationMsg = element.validationMessage;
-      if (validationMsg) {
-        errorList.innerHTML += '<li id="li-' + element.id + '"><strong>' + label.innerText + ':</strong> ' + validationMsg + '</li>';
-      }
+      errorList.innerHTML += createErrorListElement(errorList, element);
       invalidForm = true;
       if (index === 0) element.focus();
       form.classList.add('validate');
     });
-
     return invalidForm;
   };
 
@@ -292,14 +298,7 @@ var validator = (function () {
   var setElementError = function (errorListId, elementId) {
     var errorList = document.getElementById(errorListId);
     var element = document.getElementById(elementId);
-    var listElement = errorList.querySelector('#li-' + elementId);
-
-    var validationMsg = element.validationMessage;
-    var label = document.querySelector('label[for="' + element.id + '"]');
-
-    if (!element.checkValidity() && !listElement)
-      errorList.innerHTML += '<li id="li-' + element.id + '"><strong>' + label.innerText +
-          ':</strong> ' + validationMsg + '</li>';
+    errorList.innerHTML += createErrorListElement(errorList, element);
   };
 
   return {
