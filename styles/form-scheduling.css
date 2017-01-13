@@ -94,6 +94,13 @@ input[type="submit"]:focus {
   padding: 0.2em;
 }
 
+form.validate input:invalid,
+form.validate select:invalid,
+form.validate textarea:invalid {
+  border: 2px solid #c0392b;
+  outline: none;
+}
+
 ul#errors-list:not(:empty) {
   padding: 0 1em;
 }

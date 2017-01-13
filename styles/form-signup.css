@@ -150,6 +150,26 @@ input[type="submit"]:active {
   background-color: #bd4b00;
 }
 
+label:not(.optional):not([for="agreement"]):after {
+  content: ' *';
+  color: #c0392b;
+}
+
+label[for="agreement"] {
+  display: none;
+}
+
+div.div-tnc p {
+  vertical-align: top;
+}
+
+form.validate input:invalid,
+form.validate select:invalid,
+form.validate textarea:invalid {
+  border: 3px solid #c0392b;
+  outline: none;
+}
+
 
 
 

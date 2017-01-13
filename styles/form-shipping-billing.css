@@ -20,6 +20,7 @@ section > h3 {
 fieldset {
   margin-top: 1.25em;
   border-color: #fff;
+  display: inline-block;
 }
 
 fieldset legend {
@@ -101,8 +102,13 @@ input:focus {
   width: 5em;
 }
 
+.field.submit {
+  width: 100%;
+  text-align: center;
+}
+
 button[type="submit"] {
-  width: 12.5em;
+  width: 100%;
   height: 3em;
   border: 0;
   background-color: #d35400;
@@ -111,12 +117,16 @@ button[type="submit"] {
   font-size: 2em;
   text-align: center;
   border-radius: 0.7em;
-  margin: 0.5em 0 0 0.1em;
+  margin: 0.5em 0 0 0;
   padding: 0 0.5em;
 }
 
 button[type="submit"]:active {
   background-color: #bd4b00;
+}
+
+button[type="submit"]:focus {
+  outline: none;
 }
 
 .name input,
@@ -130,5 +140,14 @@ button[type="submit"]:active {
   text-transform: uppercase;
 }
 
+.field-group input[disabled] {
+  background-color: #ccc;
+}
 
+form.validate input:invalid,
+form.validate select:invalid,
+form.validate textarea:invalid {
+  border: 3px solid #c0392b;
+  outline: none;
+}
 

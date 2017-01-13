@@ -14,50 +14,56 @@
 </header>
 <section>
     <h2>Register for a free account.</h2>
-    <form method="POST">
+    <div class="error-container">
+        <ul id="errors-list"></ul>
+    </div>
+    <form id="signup-form" method="POST" novalidate>
         <div class="field field-inline">
             <label for="first-name">First Name</label>
-            <input type="text" id="first-name" name="first-name" placeholder="First Name"/>
+            <input type="text" id="first-name" name="first-name" placeholder="John" required/>
         </div>
         <div class="field field-inline">
             <label for="last-name">Last Name</label>
-            <input type="text" id="last-name" name="last-name" placeholder="Last Name"/>
+            <input type="text" id="last-name" name="last-name" placeholder="Doe" required/>
         </div>
         <div class="field">
             <label for="email">Email</label>
-            <input type="email" id="email" name="email" placeholder="Email Address"/>
+            <input type="email" id="email" name="email" placeholder="john.doe@xyz.com" required/>
         </div>
         <div class="field">
             <label for="confirm-email">Confirm Email</label>
-            <input type="email" id="confirm-email" name="confirm-email" placeholder="Retype Email Address"/>
+            <input type="email" id="confirm-email" name="confirm-email" placeholder="john.doe@xyz.com" required/>
         </div>
         <div class="field field-inline">
             <label for="password">Password</label>
-            <input type="password" id="password" name="password" placeholder="Password"/>
+            <input type="password" id="password" name="password" placeholder="Password" required/>
         </div>
         <div class="field field-inline">
             <label for="confirm-password">Confirm Password</label>
-            <input type="password" id="confirm-password" name="confirm-password" placeholder="Retype Password"/>
+            <input type="password" id="confirm-password" name="confirm-password" placeholder="Retype Password" required/>
         </div>
         <div class="field field-inline">
             <label for="dob">Date of Birth</label>
-            <input type="date" id="dob" name="dob" placeholder="DOB"/>
+            <input type="date" id="dob" name="dob" placeholder="DOB" required/>
         </div>
         <div id="div-gender" class="field field-inline">
-            <label class="block-label">Gender (select)</label>
+            <label class="block-label optional">Gender</label>
             <input type="radio" id="male-radio" name="gender" value="male"/>
-            <label for="male-radio"><i class="fa fa-mars"></i> Male</label>
+            <label for="male-radio" class="optional"><i class="fa fa-mars"></i> Male</label>
             <input type="radio" id="female-radio" name="gender" value="Female"/>
-            <label for="female-radio"><i class="fa fa-venus"></i> Female</label>
+            <label for="female-radio" class="optional"><i class="fa fa-venus"></i> Female</label>
         </div>
         <div id="div-tnc">
-            <input type="checkbox" id="agreement" name="agreement"/>
-            <p>By Signing up you agree to the <a href="javascript:false;">Terms and Conditions</a></p>
+            <label for="agreement">T&C</label>
+            <input type="checkbox" id="agreement" name="agreement" required/>
+            <p>I agree to the <a href="javascript:false;">Terms and Conditions</a></p>
         </div>
         <div>
             <input type="submit" value="Sign Up" id="submit" name="submit"/>
         </div>
     </form>
 </section>
+<script type="text/javascript" src="../js/validator.js"></script>
+<script type="text/javascript" src="../js/signup.js"></script>
 </body>
 </html>

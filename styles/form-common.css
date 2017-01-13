@@ -22,14 +22,6 @@ header > a:hover {
   text-decoration: underline;
 }
 
-form.validate input:invalid,
-form.validate select:invalid,
-form.validate textarea:invalid {
-  border: 2px solid #c0392b;
-  outline: none;
-}
-
-
 ul#errors-list:not(:empty) {
   border: 1px dotted #c0392b;
   list-style: none;
@@ -38,8 +30,8 @@ ul#errors-list:not(:empty) {
 
 ul#errors-list li {
   color: #c0392b;
-  font-size: 0.8rem;
-  padding-bottom: 0.1em;
+  font-size: 0.75rem;
+  padding-bottom: 0.2em;
   padding-left: 0.5em;
 }
 

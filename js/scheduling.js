@@ -27,19 +27,19 @@
         timezone.setCustomValidity('Please select a valid time zone.');
 
         if (!validator.validations.isEmpty(date.value) && !validator.validations.isEmpty(time.value)) {
-          validator.errorUtilities.setElementError('errorsList', date.id);
-          validator.errorUtilities.setElementError('errorsList', time.id);
+          validator.errorUtilities.setElementError('errors-list', date.id);
+          validator.errorUtilities.setElementError('errors-list', time.id);
           if (validator.validations.isEmpty(timezone.value))
-            validator.errorUtilities.setElementError('errorsList', timezone.id);
+            validator.errorUtilities.setElementError('errors-list', timezone.id);
         }
       } else {
         date.setCustomValidity('');
         time.setCustomValidity('');
         timezone.setCustomValidity('');
 
-        validator.errorUtilities.removeElementError('errorsList', date.id);
-        validator.errorUtilities.removeElementError('errorsList', time.id);
-        validator.errorUtilities.removeElementError('errorsList', timezone.id);
+        validator.errorUtilities.removeElementError('errors-list', date.id);
+        validator.errorUtilities.removeElementError('errors-list', time.id);
+        validator.errorUtilities.removeElementError('errors-list', timezone.id);
       }
     });
   });
@@ -48,13 +48,13 @@
   var name = document.getElementById('name');
   name.setCustomValidity('Please mention a valid name (alphabets only).');
   name.addEventListener('change', function () {
-    if (!validator.validations.isAlphanumeric(this.value.replace(/ /g, ''))) {
+    if (!validator.validations.isAlphaOnly(this.value.replace(/ /g, ''))) {
       this.setCustomValidity('Please mention a valid name (alphabets only).');
     } else {
       this.setCustomValidity('');
     }
-    validator.errorUtilities.setElementError('errorsList', this.id);
-    validator.errorUtilities.removeElementError('errorsList', this.id);
+    validator.errorUtilities.setElementError('errors-list', this.id);
+    validator.errorUtilities.removeElementError('errors-list', this.id);
   });
 
   var phone = document.getElementById('contact-number');
@@ -65,8 +65,8 @@
     } else {
       this.setCustomValidity('');
     }
-    validator.errorUtilities.setElementError('errorsList', this.id);
-    validator.errorUtilities.removeElementError('errorsList', this.id);
+    validator.errorUtilities.setElementError('errors-list', this.id);
+    validator.errorUtilities.removeElementError('errors-list', this.id);
   });
 
   var email = document.getElementById('email');
@@ -77,8 +77,8 @@
     } else {
       this.setCustomValidity('');
     }
-    validator.errorUtilities.setElementError('errorsList', this.id);
-    validator.errorUtilities.removeElementError('errorsList', this.id);
+    validator.errorUtilities.setElementError('errors-list', this.id);
+    validator.errorUtilities.removeElementError('errors-list', this.id);
   });
 
   var message = document.getElementById('message');
@@ -89,7 +89,7 @@
     } else {
       this.setCustomValidity('');
     }
-    validator.errorUtilities.setElementError('errorsList', this.id);
-    validator.errorUtilities.removeElementError('errorsList', this.id);
+    validator.errorUtilities.setElementError('errors-list', this.id);
+    validator.errorUtilities.removeElementError('errors-list', this.id);
   });
 })();

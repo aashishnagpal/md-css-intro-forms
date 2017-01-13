@@ -22,19 +22,22 @@
             <div class="amex"></div>
         </div>
     </div>
-    <form method="post">
+    <div class="error-container">
+        <ul id="errors-list"></ul>
+    </div>
+    <form id="payment-form" method="post" novalidate>
         <fieldset>
             <legend>Card Information</legend>
             <div class="field-group">
                 <div class="field name">
-                    <label for="name">Name on Card</label>
-                    <input type="text" id="name" name="name" placeholder=""/>
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" placeholder="" required/>
                 </div>
             </div>
             <div class="field-group">
                 <div class="field card-number">
                     <label for="card-number">Card Number</label>
-                    <input type="text" id="card-number" name="card-number" maxlength="19" placeholder=""/>
+                    <input type="text" id="card-number" name="card-number" maxlength="19" placeholder="" required/>
                 </div>
             </div>
             <div class="field-group">
@@ -43,19 +46,19 @@
                         <div id="cvv-tooltip">
                             <div>
                                 <img src="../images/cvv.png" alt="4 digit CVV and 3 digit CVV"/>
-                                <p>The verification numbers are the last 3 digits printed only on the back of a Visa,
-                                    Mastercard, or Discover card.</p>
+                                <p>The verification numbers for Visa, Mastercard, or Discover cardholders is a
+                                    3-digit code located on the back of the card.</p>
                                 <p>The verification number for American Express cardholders is a 4-digit code
                                     located on the front of the card (top right).
                                 </p>
                             </div>
                         </div>
                     </label>
-                    <input type="password" id="cvv" name="cvv" maxlength="4" placeholder=""/>
+                    <input type="password" id="cvv" name="cvv" maxlength="4" placeholder="" required/>
                 </div>
                 <div class="field month">
-                    <label>Month</label>
-                    <input type="text" list="months-list" id="month" name="month"/>
+                    <label for="month">Month</label>
+                    <input type="text" list="months-list" id="month" name="month" required/>
                     <datalist id="months-list">
                         <option value="01">01</option>
                         <option value="02">02</option>
@@ -72,8 +75,8 @@
                     </datalist>
                 </div>
                 <div class="field year">
-                    <label>Year</label>
-                    <input type="text" list="years-list" id="year" name="year" placeholder=""/>
+                    <label for="year">Year</label>
+                    <input type="text" list="years-list" id="year" name="year" placeholder="" required/>
                     <datalist id="years-list">
                         <option value="2016">2016</option>
                         <option value="2017">2017</option>
@@ -103,5 +106,7 @@
         </div>
     </form>
 </section>
+<script type="text/javascript" src="../js/validator.js"></script>
+<script type="text/javascript" src="../js/credit-payment.js"></script>
 </body>
 </html>

@@ -14,47 +14,51 @@
 </header>
 <section>
     <h3>Shipping and Billing Information</h3>
-    <form method="post">
+    <div class="error-container">
+        <ul id="errors-list"></ul>
+    </div>
+    <form id="shipping-billing-form" method="post" novalidate>
         <fieldset>
             <legend>Billing Information</legend>
+            <div class="field-group">&nbsp;</div>
             <div class="field-group">
                 <div class="field name">
                     <label for="billing-name">Full Name</label>
-                    <input type="text" id="billing-name" name="billing-name" placeholder=""/>
+                    <input type="text" id="billing-name" name="billing-name" placeholder="" required/>
                 </div>
             </div>
             <div class="field-group">
                 <div class="field street-address">
                     <label for="billing-address-1">Billing Address</label>
-                    <input type="text" id="billing-address-1" name="billing-address-1" placeholder=""/>
+                    <input type="text" id="billing-address-1" name="billing-address-1" placeholder="" required/>
                     <input type="text" id="billing-address-2" name="billing-address-2" placeholder=""/>
                 </div>
             </div>
             <div class="field-group">
                 <div class="field city">
                     <label for="billing-city">City</label>
-                    <input type="text" id="billing-city" name="billing-city" placeholder=""/>
+                    <input type="text" id="billing-city" name="billing-city" placeholder="" required/>
                 </div>
                 <div class="field state">
                     <label for="billing-state">State</label>
-                    <input type="text" id="billing-state" name="billing-state" placeholder=""/>
+                    <input type="text" id="billing-state" name="billing-state" placeholder="" required/>
                 </div>
                 <div class="field zipcode">
                     <label for="billing-zipcode">ZIP Code</label>
-                    <input type="text" id="billing-zipcode" name="billing-zipcode" placeholder=""/>
+                    <input type="text" id="billing-zipcode" name="billing-zipcode" placeholder="" required/>
                 </div>
             </div>
             <div class="field-group">
                 <div class="field country">
                     <label for="billing-country">Country</label>
                     <input type="text" name="billing-country" id="billing-country" list="country-list"
-                           placeholder="Start typing country name..."/>
+                           placeholder="Start typing country name..." required/>
                 </div>
             </div>
             <div class="field-group">
                 <div class="field phone">
                     <label for="billing-phone">Phone</label>
-                    <input type="text" id="billing-phone" name="billing-phone" placeholder=""/>
+                    <input type="text" id="billing-phone" name="billing-phone" placeholder="" required/>
                 </div>
             </div>
         </fieldset>
@@ -70,47 +74,47 @@
             <div class="field-group">
                 <div class="field name">
                     <label for="shipping-name">Full Name</label>
-                    <input type="text" id="shipping-name" name="shipping-name" placeholder=""/>
+                    <input type="text" id="shipping-name" name="shipping-name" placeholder="" required/>
                 </div>
             </div>
             <div class="field-group">
                 <div class="field street-address">
-                    <label for="shipping-address-1">Billing Address</label>
-                    <input type="text" id="shipping-address-1" name="shipping-address-1" placeholder=""/>
+                    <label for="shipping-address-1">Shipping Address</label>
+                    <input type="text" id="shipping-address-1" name="shipping-address-1" placeholder="" required/>
                     <input type="text" id="shipping-address-2" name="shipping-address-2" placeholder=""/>
                 </div>
             </div>
             <div class="field-group">
                 <div class="field city">
                     <label for="shipping-city">City</label>
-                    <input type="text" id="shipping-city" name="shipping-city" placeholder=""/>
+                    <input type="text" id="shipping-city" name="shipping-city" placeholder="" required/>
                 </div>
                 <div class="field state">
                     <label for="shipping-state">State</label>
-                    <input type="text" id="shipping-state" name="shipping-state" placeholder=""/>
+                    <input type="text" id="shipping-state" name="shipping-state" placeholder="" required/>
                 </div>
                 <div class="field zipcode">
                     <label for="shipping-zipcode">ZIP Code</label>
-                    <input type="text" id="shipping-zipcode" name="shipping-zipcode" placeholder=""/>
+                    <input type="text" id="shipping-zipcode" name="shipping-zipcode" placeholder="" required/>
                 </div>
             </div>
             <div class="field-group">
                 <div class="field country">
                     <label for="shipping-country">Country</label>
                     <input type="text" name="shipping-country" id="shipping-country" list="country-list"
-                           placeholder="Start typing country name..."/>
+                           placeholder="Start typing country name..." required/>
                 </div>
             </div>
             <div class="field-group">
                 <div class="field phone">
                     <label for="shipping-phone">Phone</label>
-                    <input type="text" id="shipping-phone" name="shipping-phone" placeholder=""/>
+                    <input type="text" id="shipping-phone" name="shipping-phone" placeholder="" required/>
                 </div>
             </div>
         </fieldset>
         <div class="field-group">
             <div class="field submit">
-                <button type="submit">Payment Info <i class="fa fa-arrow-right"></i></button>
+                <button type="submit" id="submit">Proceed to Pay <i class="fa fa-arrow-right"></i></button>
             </div>
         </div>
         <datalist id="country-list">
@@ -366,5 +370,7 @@
         </datalist>
     </form>
 </section>
+<script type="text/javascript" src="../js/validator.js"></script>
+<script type="text/javascript" src="../js/shipping-billing.js"></script>
 </body>
 </html>

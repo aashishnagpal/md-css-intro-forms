@@ -52,21 +52,32 @@ var validator = (function () {
     return false;
   };
 
-  var modifyPunctuations = function (input, symbols, action) {
-    symbols = symbols || [];
-    action = action || '';
+  var modifyPunctuations = function (input, options) {
+    options = options || {};
+    options.symbols = options.symbols || [];
+    options.action = options.action || '';
+    options.alphaType = options.alphaType || 'alphanumeric';
     return (input !== null && typeof input !== 'undefined') && input.split('').map(function (character) {
-          if ((character >= 'A' && character <= 'Z') ||
-              (character >= 'a' && character <= 'z') ||
+          if ((options.alphaType === 'alphanumeric' || options.alphaType === 'alpha') &&
+              ((character >= 'A' && character <= 'Z') ||
+              (character >= 'a' && character <= 'z'))) return character;
+
+          if ((options.alphaType === 'alphanumeric' || options.alphaType === 'alpha') &&
               (character >= '0' && character <= '9')) return character;
-          if (action === 'preserve' && symbols.includes(character)) return character;
-          if (action === 'convert' && symbols.includes(character)) return ' ';
+
+          if (options.action === 'preserve' && options.symbols.includes(character)) return character;
+          if (options.action === 'convert' && options.symbols.includes(character)) return ' ';
           return '';
         }).join('');
   };
 
   var withoutSymbols = function (input) {
-    return modifyPunctuations(input, [' '], 'preserve');
+    return modifyPunctuations(input,
+        {
+          symbols: [' '],
+          action: 'preserve'
+        }
+    );
   };
 
   var isDate = function (input) {
@@ -103,7 +114,11 @@ var validator = (function () {
     if (!input || !input.length) throw 'validator function \'contains\', missing or empty parameter: \'input\'';
     if (!words || !words.length) throw 'validator function \'contains\', missing or empty parameter: \'words\'';
 
-    input = modifyPunctuations(input.toLowerCase(), [' ', '!', '"', '\'', ',', '-', '.', ':', ';', '?', '_'], 'convert').split(' ');
+    input = modifyPunctuations(input.toLowerCase(),
+        {
+          symbols: [' ', '!', '"', '\'', ',', '-', '.', ':', ';', '?', '_'],
+          action: 'convert'
+        }).split(' ');
     words = words.map(function (word) {
       return input.includes(word.toLowerCase());
     });
@@ -164,10 +179,14 @@ var validator = (function () {
     if (input === null || typeof input === 'undefined')
       throw 'validator function \'countWords\', missing parameter: \'input\'';
 
-    input = modifyPunctuations(input.toLowerCase(), [' ', '!', '"', '\'', ',', '-', '.', ':', ';', '?', '_'], 'convert')
-        .split(' ').filter(function (word) {
-          return word.length;
-        });
+    input = modifyPunctuations(input.toLowerCase(),
+        {
+          symbols: [' ', '!', '"', '\'', ',', '-', '.', ':', ';', '?', '_'],
+          action: 'convert'
+        }
+    ).split(' ').filter(function (word) {
+      return word.length;
+    });
 
     return input.length;
   };
@@ -196,6 +215,16 @@ var validator = (function () {
   var isAlphanumeric = function (input) {
     input = input || '';
     return modifyPunctuations(input).length === input.length;
+  };
+
+  var isAlphaOnly = function (input) {
+    input = input || '';
+    return modifyPunctuations(input, {alphaType: 'alpha'}).length === input.length;
+  };
+
+  var isNumericOnly = function (input) {
+    input = input || '';
+    return modifyPunctuations(input, {alphaType: 'numeric'}).length === input.length;
   };
 
   var isCreditCard = function (input) {
@@ -254,6 +283,19 @@ var validator = (function () {
     return input === '' || !input.split(' ').includes('');
   };
 
+  // Added validation for Inputs with DataList options
+  var isValidDataListEntry = function (inputElement) {
+    var selectionMatches = false;
+    var options = inputElement.list.options;
+    for (var j = 0, optionsLen = options.length; j < optionsLen; j++) {
+      if (inputElement.value == options[j].value) {
+        selectionMatches = true;
+        break;
+      }
+    }
+    return selectionMatches;
+  };
+
   // Error Utility Functions to work in conjugation with HTML5 Constraint API
   var removeAllErrors = function (formId, errorListId) {
     document.getElementById(formId).classList.remove('validate');
@@ -282,7 +324,7 @@ var validator = (function () {
     Array.prototype.forEach.call(invalidElements, function (element, index) {
       errorList.innerHTML += createErrorListElement(errorList, element);
       invalidForm = true;
-      if (index === 0) element.focus();
+      if (index === 0 && typeof (element.focus) === 'function') element.focus();
       form.classList.add('validate');
     });
     return invalidForm;
@@ -320,12 +362,15 @@ var validator = (function () {
       hasMoreWordsThan: hasMoreWordsThan,
       isBetween: isBetween,
       isAlphanumeric: isAlphanumeric,
+      isAlphaOnly: isAlphaOnly,
+      isNumericOnly: isNumericOnly,
       isCreditCard: isCreditCard,
       isHex: isHex,
       isRGB: isRGB,
       isHSL: isHSL,
       isColor: isColor,
-      isTrimmed: isTrimmed
+      isTrimmed: isTrimmed,
+      isValidDataListEntry: isValidDataListEntry
     },
     validationUtilities: {
       withoutSymbols: withoutSymbols,

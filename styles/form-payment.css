@@ -9,6 +9,7 @@ section {
   padding: 1em;
   display: table;
   margin: 0 auto;
+  width: 25em;
 }
 
 section > h3 {
@@ -61,7 +62,8 @@ fieldset legend {
 }
 
 .name,
-.card-number {
+.card-number,
+.submit {
   width: 100%;
 }
 
@@ -69,6 +71,18 @@ fieldset legend {
 .year,
 .cvv {
   text-align: center;
+}
+
+.cvv {
+  width: 25%;
+}
+
+.month {
+  width: 31%;
+}
+
+.year {
+  width: 40%;
 }
 
 .images {
@@ -135,13 +149,12 @@ i.fa-question-circle:hover + #cvv-tooltip {
   border: 1px solid #fff;
   text-align: center;
   top: 0;
-  right: -21em;
+  right: -20em;
 }
 
 #cvv-tooltip img {
-  /*float: left;*/
-  width: 12em;
-  height: 10em;
+  width: auto;
+  height: 11em;
   margin: 0 auto;
 }
 
@@ -149,20 +162,8 @@ i.fa-question-circle:hover + #cvv-tooltip {
   text-align: justify;
 }
 
-#cvv {
-  width: 3em;
-}
-
-#month {
-  width: 4em;
-}
-
-#year {
-  width: 5em;
-}
-
 button[type="submit"] {
-  width: 9em;
+  width: 100%;
   height: 3em;
   border: 0;
   background-color: #d35400;
@@ -171,10 +172,21 @@ button[type="submit"] {
   font-size: 2em;
   text-align: center;
   border-radius: 0.7em;
-  margin: 0.5em 0 0 0.1em;
+  margin: 0.5em 0 0 0;
   padding: 0 0.5em;
 }
 
 button[type="submit"]:active {
   background-color: #bd4b00;
+}
+
+button[type="submit"]:focus {
+  outline: none;
+}
+
+form.validate input:invalid,
+form.validate select:invalid,
+form.validate textarea:invalid {
+  border: 3px solid #c0392b;
+  outline: none;
 }
